@@ -5,7 +5,8 @@ const parseGoogleProfile = (profile: any) => {
   return {
     googleId: profile.id,
     username: profile.displayName,
-    avatar: profile._json.picture
+    avatar: profile._json.picture,
+    routines: []
   };
 };
 
@@ -13,7 +14,8 @@ const parseRequest = (req: Request) => {
   const user: IUser = {
     username: req.body.username,
     googleId: req.body.googleId,
-    avatar: req.body.avatar
+    avatar: req.body.avatar,
+    routines: req.body.routines
   };
   return user;
 };

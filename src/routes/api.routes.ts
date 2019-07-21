@@ -12,9 +12,10 @@ router.post(  '/auth/google',           auth.checkGoogleToken, auth.createJwt);
 router.get(   '/users/:userId',         auth.checkJwt, users.findById);
 
 // exercises
-router.post(  'exercises',              auth.checkJwt, exercises.create);
-router.get(   'exercises/:exerciseId',  auth.checkJwt, exercises.findById);
-router.put(   'exercises/:exerciseId',  auth.checkJwt, exercises.findByIdAndUpdate);
-router.delete('exercises/:exerciseId',  auth.checkJwt, exercises.findByIdAndRemove);
+router.post(  '/exercises',              auth.checkJwt, exercises.create);
+router.get(   '/exercises',              auth.checkJwt, exercises.find);
+router.get(   '/exercises/:exerciseId',  auth.checkJwt, exercises.findById);
+router.put(   '/exercises/:exerciseId',  auth.checkJwt, exercises.findByIdAndUpdate);
+router.delete('/exercises/:exerciseId',  auth.checkJwt, exercises.findByIdAndRemove);
 
 export const ApiRouter = router;

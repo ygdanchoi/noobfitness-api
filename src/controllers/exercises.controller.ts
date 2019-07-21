@@ -2,6 +2,9 @@ import { Request, RequestHandler } from 'express';
 import { Exercise, IExercise }  from '../models/exercise.model';
 
 const parseBody = (req: Request) => {
+  if (!req.body.name) {
+    throw 'Name is required';
+  }
   const exercise: IExercise = {
     name: req.body.name,
     muscleGroup: req.body.muscleGroup,
@@ -12,6 +15,12 @@ const parseBody = (req: Request) => {
 
 export const create: RequestHandler = (req, res) => {
   Exercise.create(parseBody(req))
+    .then(exercise => res.send(exercise))
+    .catch(err => res.send(err));
+};
+
+export const find: RequestHandler = (req, res) => {
+  Exercise.find(req.body)
     .then(exercise => res.send(exercise))
     .catch(err => res.send(err));
 };

@@ -4,12 +4,20 @@ export interface IUser {
   username: string;
   googleId: string;
   avatar: string;
+  routines: IUserRoutine[]
+}
+
+export interface IUserRoutine {
+  name: string;
 }
 
 const schema = new Schema({
   username: String,
   googleId: String,
-  avatar: String
+  avatar: String,
+  routines: [{
+    name: String
+  }]
 });
 
 interface IUserDocument extends IUser, Document {

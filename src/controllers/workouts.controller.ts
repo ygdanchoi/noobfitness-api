@@ -2,6 +2,7 @@ import { Request, RequestHandler } from 'express';
 import { Workout, IWorkout }  from '../models/workout.model';
 
 const parseBody = (req: Request) => {
+  console.log(req.body);
   const workout: IWorkout = {
     name: req.body.name,
     items: req.body.items
@@ -11,6 +12,12 @@ const parseBody = (req: Request) => {
 
 export const create: RequestHandler = (req, res) => {
   Workout.create(parseBody(req))
+    .then(workout => res.send(workout))
+    .catch(err => res.send(err));
+};
+
+export const find: RequestHandler = (req, res) => {
+  Workout.find(req.body)
     .then(workout => res.send(workout))
     .catch(err => res.send(err));
 };

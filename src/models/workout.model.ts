@@ -1,5 +1,4 @@
 import { Schema, Document, model } from 'mongoose';
-import { IExercise } from './exercise.model';
 
 export interface IWorkout {
   name: string;
@@ -7,9 +6,16 @@ export interface IWorkout {
 }
 
 export interface IWorkoutItem {
-  exercise: IExercise;
-  sets: IWorkoutItemSet;
+  exercise: IWorkoutExercise;
+  sets: IWorkoutItemSet[];
   units: string;
+}
+
+export interface IWorkoutExercise {
+  _id: string,
+  name: string,
+  muscleGroup: string,
+  url: string
 }
 
 export interface IWorkoutItemSet {
@@ -21,13 +27,14 @@ const schema = new Schema({
   name: String,
   items: [{
     exercise: {
+      _id: Schema.Types.ObjectId,
       name: String,
       muscleGroup: String,
       url: String
     },
     sets: [{
       reps: Number,
-      items: Number
+      weight: Number
     }],
     units: String
   }]

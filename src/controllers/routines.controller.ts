@@ -15,6 +15,12 @@ export const create: RequestHandler = (req, res) => {
     .catch(err => res.send(err));
 };
 
+export const find: RequestHandler = (req, res) => {
+  Routine.find(req.body)
+    .then(routine => res.send(routine))
+    .catch(err => res.send(err));
+};
+
 export const findById: RequestHandler = (req, res) => {
   Routine.findById(req.params.routineId)
     .then(routine => res.send(routine))

@@ -6,12 +6,14 @@ export interface IRoutine {
 }
 
 export interface IRoutineWorkout {
+  _id: String
   name: String;
 }
 
 const schema = new Schema({
   name: String,
   workouts: [{
+    _id: Schema.Types.ObjectId,
     name: String
   }]
 });

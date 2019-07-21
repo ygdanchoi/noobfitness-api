@@ -8,10 +8,11 @@ import * as routines from '../controllers/routines.controller';
 const router = Router();
 
 // auth
-router.post(  '/auth/google',           auth.checkGoogleToken, auth.createJwt);
+router.post(  '/auth/google',            auth.checkGoogleToken, auth.createJwt);
 
 // users
-router.get(   '/users/:userId',         auth.checkJwt, users.findById);
+router.get(   '/users/:userId',          auth.checkJwt, users.findById);
+router.put(   '/users/:userId',          auth.checkJwt, users.findByIdAndUpdate);
 
 // exercises
 router.post(  '/exercises',              auth.checkJwt, exercises.create);

@@ -33,11 +33,7 @@ export const createJwt: RequestHandler = (req, res, next) => {
   return res.status(200).send(currentUser);
 };
 
-// export const checkJwt: RequestHandler = expressJwt({
-//   secret: keys.session.secret,
-//   getToken: req => req.headers['x-auth-token']
-// });
-//
-// temporarily disable authentication
-export const checkJwt: RequestHandler = (req, res, next) => next();
-
+export const checkJwt: RequestHandler = expressJwt({
+  secret: keys.session.secret,
+  getToken: req => req.headers['x-auth-token']
+});

@@ -27,7 +27,7 @@ export const findById: RequestHandler = (req, res) => {
     .catch(err => res.send(err));
 };
 
-export const update: RequestHandler = (req, res) => {
+export const findByIdAndUpdate: RequestHandler = (req, res) => {
   User.findByIdAndUpdate(req.params.userId, parseRequest(req), { new: true })
     .then(user => res.send(user))
     .catch(err => res.send(err));

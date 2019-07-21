@@ -8,6 +8,7 @@ export interface IUser {
 }
 
 export interface IUserRoutine {
+  _id: string;
   name: string;
 }
 
@@ -16,6 +17,7 @@ const schema = new Schema({
   googleId: String,
   avatar: String,
   routines: [{
+    _id: Schema.Types.ObjectId,
     name: String
   }]
 });

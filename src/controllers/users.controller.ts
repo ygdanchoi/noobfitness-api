@@ -5,18 +5,17 @@ const parseGoogleProfile = (profile: any) => {
   return {
     googleId: profile.id,
     username: profile.displayName,
-    avatar: profile._json.picture,
-    placeIds: []
+    avatar: profile._json.picture
   };
 };
 
 const parseRequest = (req: Request) => {
-  return {
+  const user: IUser = {
     username: req.body.username,
     googleId: req.body.googleId,
-    avatar: req.body.avatar,
-    placeIds: req.body.placeIds
+    avatar: req.body.avatar
   };
+  return user;
 };
 
 export const findById: RequestHandler = (req, res) => {

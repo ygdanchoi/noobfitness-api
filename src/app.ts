@@ -31,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.connect(keys.mongoose.uri, () => {
-  console.log('Connected to mongo database: metrofeed-dev');
+  console.log('Connected to mongo database: noobfitness');
 });
 
 app.use('/api', ApiRouter);

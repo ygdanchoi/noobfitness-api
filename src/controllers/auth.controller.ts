@@ -37,3 +37,8 @@ export const checkJwt: RequestHandler = expressJwt({
   secret: keys.session.secret,
   getToken: req => req.headers['x-auth-token']
 });
+
+export const logRequest: RequestHandler = (req, res, next) => {
+  console.log(req);
+  next();
+}

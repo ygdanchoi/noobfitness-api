@@ -8,7 +8,7 @@ import * as routines from '../controllers/routines.controller';
 const router = Router();
 
 // auth
-router.post(  '/auth/google',            auth.checkGoogleToken, auth.createJwt);
+router.post(  '/auth/google',            auth.logRequest, auth.checkGoogleToken, auth.createJwt);
 
 // users
 router.get(   '/users/:userId',          auth.checkJwt, users.findById);

@@ -3,6 +3,7 @@ import passport from 'passport';
 import expressJwt from 'express-jwt';
 import keys from '../config/keys';
 import jwt from 'jsonwebtoken';
+import { IUser } from '../models/user.model';
 
 export const checkGoogleToken: RequestHandler = passport.authenticate(
   'google-token',
@@ -20,7 +21,7 @@ export const createJwt: RequestHandler = (req, res, next) => {
     _id: req.user.id,
     username: req.user.username,
     avatar: req.user.avatar,
-    placeIds: req.user.placeIds
+    routines: req.user.routines
   };
 
   const token = jwt.sign(

@@ -23,6 +23,7 @@ const schema = new Schema({
 });
 
 interface IUserDocument extends IUser, Document {
+  // no subclass fields
 }
 
 export const User = model<IUserDocument>('User', schema);

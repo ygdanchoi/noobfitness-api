@@ -19,6 +19,7 @@ const schema = new Schema({
 });
 
 interface IRoutineDocument extends IRoutine, Document {
+  // no subclass fields
 }
 
 export const Routine = model<IRoutineDocument>('Routine', schema);

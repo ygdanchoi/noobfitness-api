@@ -41,6 +41,7 @@ const schema = new Schema({
 });
 
 interface IWorkoutDocument extends IWorkout, Document {
+  // no subclass fields
 }
 
 export const Workout = model<IWorkoutDocument>('Workout', schema);

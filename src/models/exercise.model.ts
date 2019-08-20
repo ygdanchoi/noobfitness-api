@@ -13,6 +13,7 @@ const schema = new Schema({
 });
 
 interface IExerciseDocument extends IExercise, Document {
+  // no subclass fields
 }
 
 export const Exercise = model<IExerciseDocument>('Exercise', schema);
